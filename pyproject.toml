@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "business-sim-env"
@@ -9,10 +9,14 @@ description = "Business Simulation Environment OpenEnv Hackathon"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "fastapi==0.111.0",
-    "uvicorn==0.29.0",
-    "pydantic==2.7.0",
-    "openai==1.30.0",
-    "httpx==0.27.0",
-    "pyyaml==6.0.1"
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "openai",
+    "httpx",
+    "pyyaml",
+    "openenv>=0.2.0"
 ]
+
+[project.scripts]
+server = "server.app:run"
