@@ -1,3 +1,12 @@
+---
+title: Business Sim OpenEnv
+emoji: 🏢
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # Business Simulation Environment
 
 > **Meta × PyTorch Hackathon — Round 1 Submission**
