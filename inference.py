@@ -30,7 +30,7 @@ from src.models import CEOAction
 # ── Configuration (mirrors sample script pattern exactly) ─────────────────────
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
 API_KEY      = os.getenv("HF_TOKEN") or os.getenv("API_KEY")
-MODEL_NAME   = os.getenv("MODEL_NAME", "meta-llama/Llama-3.2-3B-Instruct")
+MODEL_NAME   = os.getenv("MODEL_NAME", "meta-llama/Meta-Llama-3-8B-Instruct")
 ENV_URL      = os.getenv("ENV_URL", "http://localhost:7860")
 
 MAX_STEPS   = 10      # safety cap (max_quarters per task is the real limit)
@@ -57,13 +57,14 @@ SYSTEM_PROMPT = textwrap.dedent("""
     6. RESOURCE / BURNOUT  — if team.burnout > 0.5, set reduce_workload=true first
 
     Decision heuristics:
+    - ALWAYS accept a project! Pick the available project with the highest profit that your team skill allows. Do not pass null unless there are 0 projects.
     - Train if team.skill < 0.5 AND budget > 40000 → training_budget: 20000
     - Hire if team.size < 4 AND budget > 60000 → hire_count: 1
     - Use "premium" tech for AI/data projects with base_profit > 60000
     - Use "cheap" ONLY if budget < 20000 (accept tech debt risk)
     - Set reduce_workload=true if burnout > 0.55
 
-    You MUST respond with ONLY a valid JSON object — no explanation, no markdown fences.
+    CRITICAL: You MUST respond with ONLY a valid JSON object — absolutely no explanation, no conversational text, and no markdown fences like ```json.
 
     JSON schema:
     {
@@ -133,28 +134,29 @@ def build_user_prompt(step: int, observation, history: List[str]) -> str:
 
 # ── Action parsing (mirrors sample script's parse_model_action) ───────────────
 
-def parse_action(response_text: str) -> CEOAction:
+def parse_action(response_text: str, observation) -> CEOAction:
     """
     Parse LLM JSON response → CEOAction.
     Falls back to safe FALLBACK_ACTION on any parse error.
     """
-    if not response_text:
-        return FALLBACK_ACTION
+    action = FALLBACK_ACTION
     try:
-        # Strip markdown fences if model added them
         clean = re.sub(r"```(?:json)?|```", "", response_text).strip()
-        # Extract first JSON object in response
         match = re.search(r"\{.*\}", clean, re.DOTALL)
-        if not match:
-            if DEBUG:
-                print(f"  [parse_action] No JSON found in: {response_text[:80]}")
-            return FALLBACK_ACTION
-        data = json.loads(match.group())
-        return CEOAction(**data)
+        if match:
+            data = json.loads(match.group())
+            action = CEOAction(**data)
     except Exception as exc:
         if DEBUG:
             print(f"  [parse_action] Failed ({exc}). Using fallback.")
-        return FALLBACK_ACTION
+            
+    # CRITICAL GUARDRAIL: If AI skipped or failed, forcefully take the best project to save budget
+    if getattr(action, "accept_project_id", None) is None and observation.available_projects:
+        # Sort projects by profit/risk ratio to get the safest bet
+        safest = sorted(observation.available_projects, key=lambda p: p.base_profit / max(0.1, p.base_risk), reverse=True)[0]
+        action.accept_project_id = safest.id
+        
+    return action
 
 
 # ── Task runner ───────────────────────────────────────────────────────────────
@@ -213,7 +215,7 @@ def run_task(client: OpenAI, task_id: str) -> float:
                 print(f"  [LLM error] {exc} — using fallback action")
                 response_text = ""
 
-            action = parse_action(response_text)
+            action = parse_action(response_text, observation)
 
             if DEBUG:
                 print(
