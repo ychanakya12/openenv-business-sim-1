@@ -22,7 +22,7 @@ from src.models import CEOAction
 # -- Configuration -------------------------------------------------------------
 API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
 API_KEY      = os.getenv("HF_TOKEN") or os.getenv("API_KEY")
-MODEL_NAME   = os.getenv("MODEL_NAME", "meta-llama/Meta-Llama-3-8B-Instruct")
+MODEL_NAME   = os.getenv("MODEL_NAME", "openai/gpt-oss-120b")
 ENV_URL      = os.getenv("ENV_URL", "http://localhost:7860")
 
 BENCHMARK    = "business-sim"
