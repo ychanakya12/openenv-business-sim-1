@@ -133,7 +133,7 @@ docker run -p 7860:7860 business-sim-env
 
 ```bash
 export API_BASE_URL="https://router.huggingface.co/v1"
-export MODEL_NAME="meta-llama/Meta-Llama-3-8B-Instruct"
+export MODEL_NAME="openai/gpt-oss-120b"
 export HF_TOKEN=HF_TOKEN
 export ENV_URL="http://localhost:7860"
 
