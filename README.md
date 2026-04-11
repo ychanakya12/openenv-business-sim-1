@@ -89,3 +89,36 @@ By defaulting to a **Premium Tech Stack**, the agent reduces project risk and in
 The agent provides a clean terminal output with `[START]`, `[STEP]`, and `[END]` markers, as required by the OpenEnv validator, making it fully compatible with automated leaderboard evaluation.
 
 > *"Building a resilient business is not about never failing; it's about failing small and winning big."* — **AI CEO Agent**
+
+---
+
+## 🛠️ Tech Stack & Dependencies
+The Agent and Environment are built with a modern, high-performance Python stack designed for low-latency inference and robust state management:
+*   **Core Logic**: Python 3.12+ with strict Pydantic typing for action/observation schemas.
+*   **Inference**: Leveraging **OpenAI-compatible endpoints** (Hugging Face Router) with **GPT-OSS 20B** for logical reasoning.
+*   **Environment API**: **FastAPI** for the OpenEnv simulation server, ensuring standard-compliant communication.
+*   **Communication**: **Httpx** for asynchronous networking between the agent and the simulation.
+
+---
+
+## 📊 Evaluation Methodology
+Our agent is validated against three distinct "Gates" to ensure it meets Meta's resilience standards:
+1.  **Unit Tests**: Verifying deterministic logic for budget calculations and salary burns (`test_grade.py`).
+2.  **Adversarial Stress Test**: Running the Hard task (`adversarial_resilience`) which injects 10% chance shocks each quarter.
+3.  **Cross-Scenario Generalization**: Ensuring the prompt heuristics work across Easy, Medium, and Hard tasks without manual parameter tuning.
+
+---
+
+## 🔮 Future Roadmap (v2.0)
+The next evolution of the MetaStableMinds CEO Agent will focus on:
+*   **Multi-Agent Negotiation**: Allowing the CEO to negotiate project costs with the Adversarial Agent.
+*   **Dynamic Tech Stacks**: Implementing custom tech stacks where the agent can mix-and-match technologies.
+*   **Reinforcement Learning (PPO)**: Transitioning from heuristic prompts to a fine-tuned model specifically trained on BusinessSim trajectories.
+
+---
+
+## 🤝 Team MetaStableMinds
+*   **Y. Chanakya** - Lead Strategic Design & Infrastructure.
+*   **Collaborators** - Strategic Heuristics & Analysis.
+
+*Produced for the Meta PyTorch Hackathon 2024.*
