@@ -1,3 +1,13 @@
+---
+title: Business Simulation Agent
+emoji: 🏢
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🏢 AI CEO: Strategic Business Simulation Agent
 ### Meta PyTorch Hackathon — OpenEnv Round 1 Submission
 
@@ -8,7 +18,7 @@
 ---
 
 ## 🚀 Overview
-    ---
+This repository contains a state-of-the-art **AI CEO Agent** developed for the Meta PyTorch Hackathon. The agent is designed to manage a software company through a highly complex, adversarial, and stochastic business simulation environment.
 
 ## 🧠 Problem Statement
 The **BusinessSimEnv** is a multi-turn, delayed-reward environment where every action has cascading consequences. A CEO must survive up to **8 quarters** (2 years) while maintaining:
@@ -17,17 +27,6 @@ The **BusinessSimEnv** is a multi-turn, delayed-reward environment where every a
 *   High reputation to attract premium projects.
 
 The **AdversarialAgent** in the environment injects realistic "shocks" (budget audits, key departures, and client disputes) to test the agent's resilience.
-
----
-This repository contains a state-of-the-art **AI CEO Agent** developed for the Meta PyTorch Hackathon. The agent is designed to manage a software company through a highly complex, adversarial, and stochastic business simulation environment.
-
-The agent leverages **GPT-OSS 20B** to make quarterly decisions across six crucial business factors:
-1.  **Profit Potential**: Strategic project selection.
-2.  **Risk Management**: Identifying and mitigating "Hidden Risk."
-3.  **Team Capability**: Hiring, firing, and training management.
-4.  **Resource Optimization**: Budgeting and tool choice (Tech Stack).
-5.  **Market Alignment**: Adapting to Boom/Recession cycles.
-6.  **Reputation**: Building long-term brand equity vs. short-term gains.
 
 ---
 
@@ -47,15 +46,22 @@ Our simulation is not a static set of rules, but a dynamic, multi-agent world wh
 ### 🛡️ 3. The Adversarial Agent (The Friction Engine)
 *   **Role**: Simulates the "Chaos" of real-world business operations.
 *   **Behavior**: Injects randomized "Shocks" based on the simulation's difficulty level.
-*   **Impact**: Triggers events like **Budget Audits** (draining cash), **Key Employee Departures** (lowering skill), and **Client Disputes** (tanking reputation).
 
-
+---
 
 ## 🛠️ Strategic Architecture
 Our agent implements a **Reasoning-Driven Control Loop** with the following advanced heuristics:
 
+The agent leverages **GPT-OSS 20B** to make quarterly decisions across six crucial business factors:
+1.  **Profit Potential**: Strategic project selection.
+2.  **Risk Management**: Identifying and mitigating "Hidden Risk."
+3.  **Team Capability**: Hiring, firing, and training management.
+4.  **Resource Optimization**: Budgeting and tool choice (Tech Stack).
+5.  **Market Alignment**: Adapting to Boom/Recession cycles.
+6.  **Reputation**: Building long-term brand equity vs. short-term gains.
+
 ### 📊 1. Proactive ROI Analysis
-The agent performs real-time **ROI** analysis factoring in Expected Profit, Total Risk, and Quarterly Salary Burn.
+The agent performs real-time **Return on Investment (ROI)** analysis factoring in Expected Profit, Total Risk, and Quarterly Salary Burn.
 
 ### 📉 2. Salary Optimization Hack
 The agent dynamically **fires developers** to instantly save ~$24,000 per quarter in overhead.
@@ -95,3 +101,8 @@ Our agent is validated against three distinct "Gates":
 
 ---
 
+## 🤝 Team MetaStableMinds
+*   **Y. Chanakya** - Lead Strategic Design & Infrastructure.
+*   **Collaborators** - Strategic Heuristics & Analysis.
+
+*Produced for the Meta PyTorch Hackathon 2024.*
