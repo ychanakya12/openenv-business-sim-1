@@ -1,3 +1,13 @@
+---
+title: Business Simulation Agent
+emoji: 🏢
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🏢 AI CEO: Strategic Business Simulation Agent
 ### Meta PyTorch Hackathon — OpenEnv Round 1 Submission
 
@@ -31,7 +41,7 @@ Our simulation is not a static set of rules, but a dynamic, multi-agent world wh
 ### 📉 2. The Market Agent (The Economic Engine)
 *   **Role**: Simulates the macro-economic environment and consumer demand.
 *   **Behavior**: Driven by a Markov Chain, this agent triggers **Boom, Stable, and Recession** cycles.
-*   **Impact**: It alters the Domain Demand multipliers (e.g., higher demand for AI during Booms) and profit variances, forcing the CEO to adapt their strategy quarterly.
+*   **Impact**: It alters the Domain Demand multipliers, forcing the CEO to adapt their strategy quarterly.
 
 ### 🛡️ 3. The Adversarial Agent (The Friction Engine)
 *   **Role**: Simulates the "Chaos" of real-world business operations.
@@ -40,7 +50,7 @@ Our simulation is not a static set of rules, but a dynamic, multi-agent world wh
 ---
 
 ## 🛠️ Strategic Architecture
-Our agent implements a **Reasoning-Driven Control Loop** with the following advanced heuristics:
+Our agent implements a **Reasoning-Driven Control Loop** leveraging **GPT-OSS 20B** with the following advanced heuristics:
 
 The agent leverages **GPT-OSS 20B** to make quarterly decisions across six crucial business factors:
 1.  **Profit Potential**: Strategic project selection.
@@ -51,7 +61,7 @@ The agent leverages **GPT-OSS 20B** to make quarterly decisions across six cruci
 6.  **Reputation**: Building long-term brand equity vs. short-term gains.
 
 ### 📊 1. Proactive ROI Analysis
-The agent performs real-time **Return on Investment (ROI)** analysis factoring in Expected Profit, Total Risk, and Quarterly Salary Burn.
+The agent performs real-time **Return on Investment (ROI)** analysis factoring in Expected Profit, Total Risk, and Salary Burn.
 
 ### 📉 2. Salary Optimization Hack
 The agent dynamically **fires developers** to instantly save ~$24,000 per quarter in overhead.
@@ -91,3 +101,12 @@ Our agent is validated against three distinct "Gates":
 
 ---
 
+## 🤝 Team MetaStableMinds
+*   **Y. Chanakya** - Lead Strategic Design & Infrastructure.
+*   **Collaborators** - Strategic Heuristics & Analysis.
+
+---
+
+> *"Complexity is the enemy of execution. Our agent brings strategic clarity to the chaotic frontier of the open market."*
+
+*Produced for the Meta PyTorch Hackathon 2024.*
