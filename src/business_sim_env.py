@@ -77,6 +77,17 @@ class BusinessSimEnv:
         resp.raise_for_status()
         return _Result(resp.json())
 
+    def get_state(self) -> dict:
+        """Call GET /state?session_id=..."""
+        if not self.session_id:
+            return {}
+        resp = self._client.get(
+            f"{self.base_url}/state",
+            params={"session_id": self.session_id}
+        )
+        resp.raise_for_status()
+        return resp.json()
+
     def grade(self) -> float:
         """Call GET /grade?session_id=..."""
         if not self.session_id:

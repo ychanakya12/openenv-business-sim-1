@@ -16,8 +16,8 @@ import httpx
 import yaml
 
 BASE = os.getenv("ENV_URL", "http://localhost:7860")
-PASS = "✅"
-FAIL = "❌"
+PASS = "[PASS]"
+FAIL = "[FAIL]"
 results: list[bool] = []
 
 
@@ -190,9 +190,9 @@ print(f"\n{'='*55}")
 print(f"  {passed}/{total} gates passed")
 
 if passed == total:
-    print("  🚀 ALL GATES PASSED — ready to submit!")
+    print("  ALL GATES PASSED - ready to submit!")
 else:
-    print("  ⚠️  Fix the failing gates before submitting.")
+    print("  Fix the failing gates before submitting.")
     print("  Failing gates = automatic disqualification.")
 print(f"{'='*55}\n")
 
