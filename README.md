@@ -1,13 +1,3 @@
----
-title: Business Simulation Agent
-emoji: 🏢
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # 🏢 AI CEO: Strategic Business Simulation Agent
 ### Meta PyTorch Hackathon — OpenEnv Round 1 Submission
 
