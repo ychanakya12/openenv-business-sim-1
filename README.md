@@ -109,4 +109,3 @@ Our agent is validated against three distinct "Gates":
 
 > *"Complexity is the enemy of execution. Our agent brings strategic clarity to the chaotic frontier of the open market."*
 
-*Produced for the Meta PyTorch Hackathon 2024.*
