@@ -1,3 +1,13 @@
+---
+title: Business Simulation Agent
+emoji: 🏢
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🏢 AI CEO: Strategic Business Simulation Agent
 ### Meta PyTorch Hackathon — OpenEnv Round 1 Submission
 
@@ -26,68 +36,46 @@ Our simulation is not a static set of rules, but a dynamic, multi-agent world wh
 ### 👤 1. The AI CEO (The Decision Engine)
 *   **Role**: The primary protagonist of the simulation.
 *   **Actions**: Project acceptance, hiring/firing (Salary Optimization), tech stack selection, and skill training.
-*   **Objective**: Maximize long-term corporate health (Budget, Reputation, and Low Burnout) through high-reasoning ROI analysis.
+*   **Objective**: Maximize long-term corporate health.
 
 ### 📉 2. The Market Agent (The Economic Engine)
 *   **Role**: Simulates the macro-economic environment and consumer demand.
-*   **Behavior**: Driven by a Markov Chain, this agent triggers **Boom, Stable, and Recession** cycles.
-*   **Impact**: It alters the Domain Demand multipliers (e.g., higher demand for AI during Booms) and profit variances, forcing the CEO to adapt their strategy quarterly.
+*   **Impact**: Driven by a Markov Chain, this agent triggers **Boom, Stable, and Recession** cycles.
 
 ### 🛡️ 3. The Adversarial Agent (The Friction Engine)
 *   **Role**: Simulates the "Chaos" of real-world business operations.
-*   **Behavior**: Injects randomized "Shocks" based on the simulation's difficulty level.
+*   **Impact**: Triggers events like Budget Audits, Key Employee Departures, and Client Disputes.
 
 ---
 
 ## 🛠️ Strategic Architecture
-Our agent implements a **Reasoning-Driven Control Loop** with the following advanced heuristics:
-
-The agent leverages **GPT-OSS 20B** to make quarterly decisions across six crucial business factors:
-1.  **Profit Potential**: Strategic project selection.
-2.  **Risk Management**: Identifying and mitigating "Hidden Risk."
-3.  **Team Capability**: Hiring, firing, and training management.
-4.  **Resource Optimization**: Budgeting and tool choice (Tech Stack).
-5.  **Market Alignment**: Adapting to Boom/Recession cycles.
-6.  **Reputation**: Building long-term brand equity vs. short-term gains.
+Our agent implements a **Reasoning-Driven Control Loop** leveraging **GPT-OSS 20B**:
 
 ### 📊 1. Proactive ROI Analysis
-The agent performs real-time **Return on Investment (ROI)** analysis factoring in Expected Profit, Total Risk, and Quarterly Salary Burn.
+The agent performs real-time **ROI** analysis factoring in Expected Profit, Total Risk, and Salary Burn.
 
 ### 📉 2. Salary Optimization Hack
-The agent dynamically **fires developers** to instantly save ~$24,000 per quarter in overhead.
+The agent dynamically **fires developers** to save ~$24,000 per quarter in overhead.
 
 ### 🛡️ 3. Bankruptcy Protection
-Follows a strict **Budget-to-Penalty Ratio**. Skip the quarter rather than taking a "suicidal" gamble.
+Skip the quarter rather than taking a "suicidal" gamble.
 
 ---
 
 ## 📊 Evaluation Methodology
-Our agent is validated against three distinct "Gates":
-1.  **Unit Tests**: Verifying deterministic logic for budget calculations (`test_grade.py`).
-2.  **Adversarial Stress Test**: Running the Hard task (`adversarial_resilience`).
-3.  **Generalization**: Heuristics that work across all task difficulties.
+Our agent is validated against:
+1.  **Unit Tests**: Deterministic logic verification.
+2.  **Adversarial Stress**: survival under Hard task conditions.
+3.  **Generalization**: Performance across all difficulties.
 
 ---
 
-## 🛠️ Tech Stack & Dependencies
-*   **Core Logic**: Python 3.12+ with Pydantic schemas.
-*   **Inference**: **GPT-OSS 20B** on Hugging Face Router.
-*   **Environment API**: **FastAPI** simulation server.
-*   **Communication**: Asynchronous **Httpx**.
+## 🤝 Team MetaStableMinds
+*   **Y. Chanakya** - Lead Strategic Design & Infrastructure.
+*   **Collaborators** - Strategic Heuristics & Analysis.
 
 ---
 
-## 🔮 Future Roadmap (v2.0)
-*   **Multi-Agent Negotiation**: Direct negotiation with the Adversarial Agent.
-*   **Dynamic Tech Stacks**: Modular technology selection.
-*   **Reinforcement Learning (PPO)**: Transitioning from heuristic prompts to fine-tuned models.
+> *"Complexity is the enemy of execution. Our agent brings strategic clarity to the chaotic frontier of the open market."*
 
----
-
-## ⚙️ Installation & Usage
-1.  **Configure Token**: `$env:HF_TOKEN="your_token"`
-2.  **Run Inference**: `python inference.py`
-3.  **Validate**: `python validate.py`
-
----
-
+*Produced for the Meta PyTorch Hackathon 2024.*
