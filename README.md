@@ -1,13 +1,3 @@
----
-title: Business Simulation Agent
-emoji: 🏢
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # 🏢 AI CEO: Strategic Business Simulation Agent
 ### Meta PyTorch Hackathon — OpenEnv Round 1 Submission
 
@@ -18,6 +8,17 @@ pinned: false
 ---
 
 ## 🚀 Overview
+    ---
+
+## 🧠 Problem Statement
+The **BusinessSimEnv** is a multi-turn, delayed-reward environment where every action has cascading consequences. A CEO must survive up to **8 quarters** (2 years) while maintaining:
+*   Positive cash flow in a recession.
+*   Low employee burnout to avoid skill degradation.
+*   High reputation to attract premium projects.
+
+The **AdversarialAgent** in the environment injects realistic "shocks" (budget audits, key departures, and client disputes) to test the agent's resilience.
+
+---
 This repository contains a state-of-the-art **AI CEO Agent** developed for the Meta PyTorch Hackathon. The agent is designed to manage a software company through a highly complex, adversarial, and stochastic business simulation environment.
 
 The agent leverages **GPT-OSS 20B** to make quarterly decisions across six crucial business factors:
@@ -48,17 +49,7 @@ Our simulation is not a static set of rules, but a dynamic, multi-agent world wh
 *   **Behavior**: Injects randomized "Shocks" based on the simulation's difficulty level.
 *   **Impact**: Triggers events like **Budget Audits** (draining cash), **Key Employee Departures** (lowering skill), and **Client Disputes** (tanking reputation).
 
----
 
-## 🧠 Problem Statement
-The **BusinessSimEnv** is a multi-turn, delayed-reward environment where every action has cascading consequences. A CEO must survive up to **8 quarters** (2 years) while maintaining:
-*   Positive cash flow in a recession.
-*   Low employee burnout to avoid skill degradation.
-*   High reputation to attract premium projects.
-
-The **AdversarialAgent** in the environment injects realistic "shocks" (budget audits, key departures, and client disputes) to test the agent's resilience.
-
----
 
 ## 🛠️ Strategic Architecture
 Our agent implements a **Reasoning-Driven Control Loop** with the following advanced heuristics:
@@ -104,8 +95,3 @@ Our agent is validated against three distinct "Gates":
 
 ---
 
-## 🤝 Team MetaStableMinds
-*   **Y. Chanakya** - Lead Strategic Design & Infrastructure.
-*   **Collaborators** - Strategic Heuristics & Analysis.
-
-*Produced for the Meta PyTorch Hackathon 2024.*
